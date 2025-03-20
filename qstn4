@@ -1,0 +1,13 @@
+function changeColor() {
+    const color = prompt("Enter a color for the links:");
+    if (color) {
+        const links = document.querySelectorAll('a');
+        links.forEach(link => {
+            link.style.color = color;
+        });
+    } else {
+        alert("No color entered.");
+    }
+}
+
+changeColor();
