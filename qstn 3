@@ -1,0 +1,29 @@
+function checkIfCashIsAdequate() {
+    // Prompt user for item price, tax rate, and cash
+    const itemPrice = parseFloat(prompt("Enter the item price:"));
+    const taxRate = parseFloat(prompt("Enter the tax rate (%):"));
+    const cash = parseFloat(prompt("Enter the cash you have:"));
+
+    // Check if the inputs are valid numbers
+    if (isNaN(itemPrice) || isNaN(taxRate) || isNaN(cash)) {
+        alert("Please enter valid numbers.");
+        return;
+    }
+
+    // Calculate the total cost, which is item price + item price * tax rate
+    const totalCost = itemPrice + (itemPrice * taxRate / 100);
+
+    // Compare the cash with the total cost
+    if (cash >= totalCost) {
+        // If cash is sufficient, calculate the extra amount (balance)
+        const extraAmount = cash - totalCost;
+        alert("Yes! You have enough cash. Your extra balance is: " + extraAmount);
+    } else {
+        // If cash is not sufficient, calculate the remaining amount needed
+        const remainingAmount = totalCost - cash;
+        alert("No! You need " + remainingAmount + " more to complete the transaction.");
+    }
+}
+
+// Call the function to check the user's cash
+checkIfCashIsAdequate();
